@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KumikiHub — All your Blenders. One hub.</title>
-<meta name="description" content="KumikiHub: manage every Blender version, add-on, profile and project on Windows.">
+<title>KumikiHub — Build your Blender, add-on by add-on.</title>
+<meta name="description" content="KumikiHub: every version of every Blender add-on in one library, matched to every Blender you use. For Windows.">
 <link rel="icon" href="icon.png">
 <meta property="og:title" content="KumikiHub">
-<meta property="og:description" content="All your Blenders. One hub.">
+<meta property="og:description" content="Build your Blender, add-on by add-on.">
 <meta property="og:image" content="icon.png">
 <style>
 :root{--ink:#f3f1ec;--muted:#b9b4aa;--line:rgba(255,255,255,.18);--bg:#14171c}
@@ -71,10 +71,10 @@ footer{font-size:12px;color:var(--muted);text-align:center;margin-top:18px;line-
 /* ===== 在這裡填網址（空白 = 顯示「即將推出」或不顯示） ===== */
 const LINKS = {
   superhive:  "",   // 例："https://superhivemarket.com/products/kumikihub"
-  gumroad:    "",
+  gumroad:    "https://cansss.gumroad.com/l/kumikihub",
   booth:      "",
-  artstation: "",
-  x:          "",   // 社群：空白就不顯示
+  artstation: "https://cans.artstation.com/store/RKxdB/kumikihub-blender-add-on-manager",
+  x:          "https://x.com/cans_mu",   // 社群：空白就不顯示
   pixiv:      "",
   youtube:    "",
   facebook:   "",
@@ -83,21 +83,21 @@ const EMAIL = "cansss2023@gmail.com";
 /* ============================================================== */
 
 const T = {
-  en:{tag:"All your Blenders. One hub.",buy:"Get KumikiHub",docs:"User guide",follow:"Follow",contact:"Questions or bug reports:",
+  en:{tag:"Build your Blender, add-on by add-on.",buy:"Get KumikiHub",docs:"User guide",follow:"Follow",contact:"Questions or bug reports:",
       soon:"Coming soon",guide:"Open the user guide",releases:"Release notes",relsub:"What's new in each version",
-      superhive:"Blender marketplace",gumroad:"Pay with card or PayPal",booth:"For buyers in Japan",artstation:"ArtStation Marketplace",
+      superhive:"Blender marketplace",gumroad:"Pay by card",booth:"For buyers in Japan",artstation:"ArtStation Marketplace",
       tm:"Windows 11 / 10 · Blender 2.93+<br>Blender is a registered trademark of the Blender Foundation. KumikiHub is not affiliated with the Blender Foundation."},
-  ja:{tag:"すべての Blender を、ひとつのハブに。",buy:"購入する",docs:"使い方ガイド",follow:"フォロー",contact:"お問い合わせ・不具合報告：",
+  ja:{tag:"アドオンを組み合わせて、あなたの Blender に。",buy:"購入する",docs:"使い方ガイド",follow:"フォロー",contact:"お問い合わせ・不具合報告：",
       soon:"近日公開",guide:"使い方ガイドを開く",releases:"更新履歴",relsub:"各バージョンの変更点",
-      superhive:"Blender マーケット",gumroad:"カード・PayPal で購入",booth:"日本のお客様向け",artstation:"ArtStation マーケット",
+      superhive:"Blender マーケット",gumroad:"カードで購入",booth:"日本のお客様向け",artstation:"ArtStation マーケット",
       tm:"Windows 11 / 10 · Blender 2.93 以降<br>Blender は Blender Foundation の登録商標です。KumikiHub は非公式の第三者ツールです。"},
-  "zh-TW":{tag:"所有 Blender，集中在一個 Hub。",buy:"購買",docs:"使用說明",follow:"追蹤",contact:"問題與回報：",
+  "zh-TW":{tag:"把 Add-on 組合成你的 Blender。",buy:"購買",docs:"使用說明",follow:"追蹤",contact:"問題與回報：",
       soon:"即將推出",guide:"開啟使用說明",releases:"更新記錄",relsub:"每個版本的變更",
-      superhive:"Blender 素材商店",gumroad:"信用卡、PayPal 付款",booth:"日本買家",artstation:"ArtStation 商店",
+      superhive:"Blender 素材商店",gumroad:"信用卡付款",booth:"日本買家",artstation:"ArtStation 商店",
       tm:"Windows 11 / 10 · Blender 2.93 以後<br>Blender 是 Blender Foundation 的註冊商標。KumikiHub 為獨立開發的第三方工具。"},
-  "zh-CN":{tag:"所有 Blender，集中在一个 Hub。",buy:"购买",docs:"使用说明",follow:"关注",contact:"问题与反馈：",
+  "zh-CN":{tag:"把 Add-on 组合成你的 Blender。",buy:"购买",docs:"使用说明",follow:"关注",contact:"问题与反馈：",
       soon:"即将推出",guide:"打开使用说明",releases:"更新记录",relsub:"每个版本的变更",
-      superhive:"Blender 素材商店",gumroad:"信用卡、PayPal 付款",booth:"日本买家",artstation:"ArtStation 商店",
+      superhive:"Blender 素材商店",gumroad:"信用卡付款",booth:"日本买家",artstation:"ArtStation 商店",
       tm:"Windows 11 / 10 · Blender 2.93 以后<br>Blender 是 Blender Foundation 的注册商标。KumikiHub 为独立开发的第三方工具。"},
 };
 const NAMES={en:"English",ja:"日本語","zh-TW":"繁體中文","zh-CN":"简体中文"};
