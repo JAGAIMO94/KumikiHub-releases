@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KumikiHub — All your Blenders. One hub.</title>
+<meta name="description" content="KumikiHub: manage every Blender version, add-on, profile and project on Windows.">
+<link rel="icon" href="icon.png">
+<meta property="og:title" content="KumikiHub">
+<meta property="og:description" content="All your Blenders. One hub.">
+<meta property="og:image" content="icon.png">
+<style>
+:root{--ink:#f3f1ec;--muted:#b9b4aa;--line:rgba(255,255,255,.18);--bg:#14171c}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,"Segoe UI","Yu Gothic UI","Microsoft JhengHei UI","Microsoft YaHei UI",sans-serif;overflow-x:hidden}
+.blob{position:fixed;border-radius:38% 62% 55% 45%/50% 40% 60% 50%;filter:blur(10px);opacity:.8;z-index:0}
+.b1{width:60vmax;height:50vmax;left:-20vmax;top:-18vmax;background:radial-gradient(circle at 40% 40%,#7cb8f0,#3b78c4 60%,#24456e)}
+.b2{width:44vmax;height:40vmax;right:-16vmax;top:8vmax;background:radial-gradient(circle,#ef6a5f,#b8302d 65%,#5e1716)}
+.b3{width:50vmax;height:40vmax;left:10vmax;bottom:-22vmax;background:radial-gradient(circle at 50% 40%,#f2b45c,#c97a1f 65%,#5f3a0e)}
+main{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:40px 16px 48px}
+.card{border-radius:28px;padding:36px 28px 28px;background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.03)),rgba(16,18,23,.42);
+ backdrop-filter:blur(40px) saturate(160%);-webkit-backdrop-filter:blur(40px) saturate(160%);border:1px solid var(--line);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 30px 80px rgba(0,0,0,.35);text-align:center}
+.logo{width:140px;height:140px;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
+h1{font-size:40px;font-weight:800;letter-spacing:-1px;margin:6px 0 0}
+.tag{font-size:18px;color:#e2ddd3;margin:2px 0 0}
+.langs{display:flex;justify-content:center;gap:6px;margin:18px 0 6px;flex-wrap:wrap}
+.langs button{font:inherit;font-size:13px;color:var(--muted);background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:999px;padding:3px 11px;cursor:pointer}
+.langs button.on{color:var(--ink);border-color:rgba(255,255,255,.55)}
+h2{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:26px 0 10px;font-weight:600}
+.links{display:grid;gap:10px}
+.btn{display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;color:var(--ink);
+ padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid var(--line);transition:background .15s,transform .15s}
+.btn:hover{background:rgba(255,255,255,.15);transform:translateY(-1px)}
+.btn b{font-size:17px;font-weight:600}
+.btn small{color:var(--muted);font-size:13px;text-align:right}
+.btn.off{opacity:.45;pointer-events:none}
+.btn .dot{width:10px;height:10px;border-radius:50%;flex:none;margin-right:2px}
+.left{display:flex;align-items:center;gap:12px}
+.social{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.social a{color:var(--ink);text-decoration:none;font-size:14px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--line)}
+.social a:hover{background:rgba(255,255,255,.16)}
+.contact{margin-top:22px;font-size:14px;color:var(--muted)}
+.contact a{color:var(--ink)}
+footer{font-size:12px;color:var(--muted);text-align:center;margin-top:18px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<main>
+<div class="card">
+  <img class="logo" src="icon.png" alt="KumikiHub">
+  <h1>KumikiHub</h1>
+  <p class="tag" data-t="tag"></p>
+  <div class="langs" id="langs"></div>
+
+  <h2 data-t="buy"></h2>
+  <div class="links" id="stores"></div>
+
+  <h2 data-t="docs"></h2>
+  <div class="links" id="docs"></div>
+
+  <div id="socialWrap"><h2 data-t="follow"></h2><div class="social" id="social"></div></div>
+
+  <p class="contact"><span data-t="contact"></span> <a id="mail"></a></p>
+</div>
+<footer data-t="tm"></footer>
+</main>
+<script>
+/* ===== 在這裡填網址（空白 = 顯示「即將推出」或不顯示） ===== */
+const LINKS = {
+  superhive:  "",   // 例："https://superhivemarket.com/products/kumikihub"
+  gumroad:    "",
+  booth:      "",
+  artstation: "",
+  x:          "",   // 社群：空白就不顯示
+  pixiv:      "",
+  youtube:    "",
+  facebook:   "",
+};
+const EMAIL = "cansss2023@gmail.com";
+/* ============================================================== */
+
+const T = {
+  en:{tag:"All your Blenders. One hub.",buy:"Get KumikiHub",docs:"User guide",follow:"Follow",contact:"Questions or bug reports:",
+      soon:"Coming soon",guide:"Open the user guide",releases:"Release notes",relsub:"What's new in each version",
+      superhive:"Blender marketplace",gumroad:"Pay with card or PayPal",booth:"For buyers in Japan",artstation:"ArtStation Marketplace",
+      tm:"Windows 11 / 10 · Blender 2.93+<br>Blender is a registered trademark of the Blender Foundation. KumikiHub is not affiliated with the Blender Foundation."},
+  ja:{tag:"すべての Blender を、ひとつのハブに。",buy:"購入する",docs:"使い方ガイド",follow:"フォロー",contact:"お問い合わせ・不具合報告：",
+      soon:"近日公開",guide:"使い方ガイドを開く",releases:"更新履歴",relsub:"各バージョンの変更点",
+      superhive:"Blender マーケット",gumroad:"カード・PayPal で購入",booth:"日本のお客様向け",artstation:"ArtStation マーケット",
+      tm:"Windows 11 / 10 · Blender 2.93 以降<br>Blender は Blender Foundation の登録商標です。KumikiHub は非公式の第三者ツールです。"},
+  "zh-TW":{tag:"所有 Blender，集中在一個 Hub。",buy:"購買",docs:"使用說明",follow:"追蹤",contact:"問題與回報：",
+      soon:"即將推出",guide:"開啟使用說明",releases:"更新記錄",relsub:"每個版本的變更",
+      superhive:"Blender 素材商店",gumroad:"信用卡、PayPal 付款",booth:"日本買家",artstation:"ArtStation 商店",
+      tm:"Windows 11 / 10 · Blender 2.93 以後<br>Blender 是 Blender Foundation 的註冊商標。KumikiHub 為獨立開發的第三方工具。"},
+  "zh-CN":{tag:"所有 Blender，集中在一个 Hub。",buy:"购买",docs:"使用说明",follow:"关注",contact:"问题与反馈：",
+      soon:"即将推出",guide:"打开使用说明",releases:"更新记录",relsub:"每个版本的变更",
+      superhive:"Blender 素材商店",gumroad:"信用卡、PayPal 付款",booth:"日本买家",artstation:"ArtStation 商店",
+      tm:"Windows 11 / 10 · Blender 2.93 以后<br>Blender 是 Blender Foundation 的注册商标。KumikiHub 为独立开发的第三方工具。"},
+};
+const NAMES={en:"English",ja:"日本語","zh-TW":"繁體中文","zh-CN":"简体中文"};
+const MANUAL={en:"manual_en.html",ja:"manual_ja.html","zh-TW":"manual_zh-TW.html","zh-CN":"manual_zh-CN.html"};
+const STORES=[["superhive","Superhive","#E39A3A"],["gumroad","Gumroad","#5AA0E6"],["booth","BOOTH","#D9433F"],["artstation","ArtStation","#5AA0E6"]];
+const SOCIAL=[["x","X"],["pixiv","pixiv"],["youtube","YouTube"],["facebook","Facebook"]];
+
+function pick(){
+  try{const s=localStorage.getItem("kh-lang"); if(s&&T[s]) return s;}catch(e){}
+  const n=(navigator.language||"en").toLowerCase();
+  if(n.startsWith("ja")) return "ja";
+  if(n.startsWith("zh")) return (n.includes("cn")||n.includes("hans")||n.includes("sg"))?"zh-CN":"zh-TW";
+  return "en";
+}
+function el(tag,attrs,html){const e=document.createElement(tag);Object.assign(e,attrs||{});if(html!=null)e.innerHTML=html;return e;}
+function render(lang){
+  const t=T[lang]; document.documentElement.lang=lang;
+  document.querySelectorAll("[data-t]").forEach(n=>n.innerHTML=t[n.dataset.t]);
+  const L=document.getElementById("langs"); L.innerHTML="";
+  for(const k in NAMES){const b=el("button",{type:"button",className:k===lang?"on":""},NAMES[k]);b.onclick=()=>{try{localStorage.setItem("kh-lang",k)}catch(e){};render(k)};L.appendChild(b);}
+  const S=document.getElementById("stores"); S.innerHTML="";
+  for(const [k,name,c] of STORES){const url=LINKS[k];
+    const a=el("a",{className:"btn"+(url?"":" off"),href:url||"#",target:"_blank",rel:"noopener"},
+      `<span class="left"><span class="dot" style="background:${c}"></span><b>${name}</b></span><small>${url?t[k]:t.soon}</small>`);S.appendChild(a);}
+  const D=document.getElementById("docs"); D.innerHTML="";
+  D.appendChild(el("a",{className:"btn",href:MANUAL[lang]},`<b>${t.guide}</b><small>${NAMES[lang]}</small>`));
+  D.appendChild(el("a",{className:"btn",href:"https://github.com/JAGAIMO94/KumikiHub-releases/releases",target:"_blank",rel:"noopener"},`<b>${t.releases}</b><small>${t.relsub}</small>`));
+  const So=document.getElementById("social"); So.innerHTML=""; let any=false;
+  for(const [k,name] of SOCIAL){if(LINKS[k]){any=true;So.appendChild(el("a",{href:LINKS[k],target:"_blank",rel:"noopener"},name));}}
+  document.getElementById("socialWrap").style.display=any?"":"none";
+  const m=document.getElementById("mail"); m.href="mailto:"+EMAIL; m.textContent=EMAIL;
+}
+render(pick());
+</script>
+</body>
+</html>
