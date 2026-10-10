@@ -106,7 +106,7 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
     <li><a href="#instances">Blender Instances</a></li>
     <li><a href="#library">Add-on library</a></li>
     <li><a href="#modules">Modules</a></li>
-    <li><a href="#profiles">Profiles</a></li>
+    <li><a href="#prefs">Preferences &amp; keymaps</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#resources">Resources</a></li>
     <li><a href="#logs">Logs &amp; diagnosis</a></li>
@@ -133,90 +133,129 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   <h2><span class="n">1</span>Install &amp; first launch</h2>
   <table>
     <tr><th>Requirements</th><th></th></tr>
-    <tr><td>Windows</td><td>Windows 11 (64-bit)<br>Windows 10 (64-bit) should work, but it isn't fully tested, so some features may not work perfectly.</td></tr>
+    <tr><td>OS</td><td>Windows 11 (64-bit)<br>Windows 10 (64-bit) should work but isn't fully tested, so not every feature is guaranteed.</td></tr>
     <tr><td>Blender</td><td>2.93 or later, plus forks such as Bforartists, Goo Engine and UPBGE</td></tr>
   </table>
   <ol class="steps">
-    <li>Unzip the download anywhere, for example your Desktop or <code>D:\Tools</code>.</li>
+    <li>Unzip the download anywhere, e.g. your Desktop or <code>D:\Tools</code>. No installer.</li>
     <li>Double-click <code>KumikiHub.exe</code>.</li>
-    <li>Choose your language (English is selected by default; you can change it later in Settings → General).</li>
-    <li>The welcome screen finds the Blender versions on your PC and adds them to the list.</li>
+    <li>Pick the interface language (English by default; change it later in Settings → General).</li>
+    <li>On the welcome screen, click "Scan my computer" to find your Blender installs.</li>
   </ol>
   <div class="note warn"><b>"Windows protected your PC"?</b><br>Click "More info" → "Run anyway". You only need to do this once.</div>
-  <div class="note"><b>Just want to look around?</b><br>Double-click <code>KumikiHub Demo.bat</code>. It opens with sample data and doesn't read or change your Blender or settings.</div>
-  <p><b>Shortcuts:</b> <kbd>Ctrl</kbd>+<kbd>K</kbd> search features　<kbd>Ctrl</kbd>+<kbd>,</kbd> open Settings　<kbd>F5</kbd> refresh</p>
+  <div class="note"><b>Just want to look around?</b><br>Double-click <code>KumikiHub Demo.bat</code>. It opens with sample data and doesn't read or change your real Blender or settings.</div>
+  <h3>The basics</h3>
+  <div class="grid">
+    <div><b>Blender instance</b>Each Blender on your PC (versions, portable copies, forks)</div>
+    <div><b>Add-on library</b>Every add-on and all its versions, stored once</div>
+    <div><b>Module</b>A group of add-ons you use together, e.g. "Sculpting" or "VRM"</div>
+    <div><b>Launch</b>Blender loads only the add-ons in the modules you ticked for it</div>
+  </div>
+  <p><b>Shortcuts:</b> <kbd>Ctrl</kbd>+<kbd>K</kbd> command search　<kbd>Ctrl</kbd>+<kbd>,</kbd> Settings　<kbd>F5</kbd> refresh</p>
 </section>
 
 <section id="instances">
   <h2><span class="n">2</span>Blender Instances</h2>
-  <p class="lead">Each Blender is a card showing its version, profile, settings location and last launch. Switch between Card view and List view in the top-right corner.</p>
+  <p class="lead">Each Blender is a card showing its version, ticked modules, settings location and last launch. Switch between cards and a list at the top right.</p>
   <table>
     <tr><th>To do this</th><th>Do this</th></tr>
     <tr><td>Launch</td><td>Click "▶ Launch" or double-click the card</td></tr>
-    <tr><td>A Blender is missing</td><td>Click the arrow next to "Scan installs" to scan whole drives, use "Add manually" and pick <code>blender.exe</code>, or drag the folder into the window</td></tr>
-    <tr><td>Add launch arguments once</td><td>Type them in "One-time launch arguments"</td></tr>
-    <tr><td>Load only some modules this time</td><td>"Launch with modules"</td></tr>
-    <tr><td>Download an official build</td><td>"Download a new Blender" (includes Daily / Experimental Builds)</td></tr>
+    <tr><td>A Blender is missing</td><td>Arrow next to "Scan installs" → scan all or selected drives; or "Add manually" and pick <code>blender.exe</code>; or drag the folder into the window</td></tr>
+    <tr><td>Choose which modules this Blender loads</td><td>Manage → Add-ons → Choose modules (tick as many as you like)</td></tr>
+    <tr><td>Use different modules just this once</td><td>"Launch with modules"</td></tr>
+    <tr><td>Add launch arguments just this once</td><td>Type them in the temporary arguments box</td></tr>
+    <tr><td>Download an official build</td><td>"Download a new Blender" (including Daily / Experimental builds)</td></tr>
   </table>
-  <h3>The card's "⋯" menu (or right-click)</h3>
-  <div class="grid">
-    <div><b>Edit</b>Name, default launch arguments, assigned profile</div>
-    <div><b>Add-on overview</b>See installed add-ons and turn them on or off</div>
-    <div><b>Optimize add-on versions</b>Swap incompatible add-ons for compatible versions from your library</div>
-    <div><b>Enable Portable (separate settings)</b>Stop sharing settings with other versions in the same series</div>
-    <div><b>Duplicate as new Blender instance</b>Copy a Blender to test new add-ons without touching the original</div>
-    <div><b>More</b>Recent files, back up / restore settings, copy settings to another instance, export launch script (.bat)</div>
-  </div>
-  <p>"Remove from list" doesn't delete any files. "Uninstall this Blender" moves it to the Safety Bin first, so you can restore it.</p>
-  <div class="note warn"><b>Settings location shows an orange "shared!"</b><br>This Blender shares its settings with other versions in the same series. Use "Enable Portable (separate settings)" to split them.</div>
+  <h3>The Manage menu (common items are also on the right-click menu)</h3>
+  <table>
+    <tr><th>Submenu</th><th>What's in it</th></tr>
+    <tr><td>Add-ons</td><td>Choose modules, Add-on overview (see and enable / disable installed add-ons), Optimize add-on versions, Add-on health check</td></tr>
+    <tr><td>Settings &amp; backup</td><td>Preferences and keymaps (see section 5), back up / restore settings, copy settings to another Blender instance, export a launch script (.bat)</td></tr>
+    <tr><td>Install &amp; move</td><td>Enable / disable Portable, move to the managed folder, duplicate as a new Blender instance, uninstall this Blender</td></tr>
+    <tr><td>Other</td><td>Pin to the top, recent files, last launch report, Safety Bin</td></tr>
+  </table>
+  <h3>Make an independent copy of a Blender</h3>
+  <p>"Duplicate as new Blender instance" copies the whole Blender into the managed folder, turns on Portable and copies the current settings by default. After that, both copies keep their own settings, add-ons and ticked modules — handy for a "VRM" copy or one for testing new add-ons.</p>
+  <div class="note warn"><b>Orange "Shared!" next to the settings location</b><br>This Blender shares its settings with other versions of the same series. Use "Enable Portable (separate settings)" to split them.</div>
+  <p>"Remove from list" never deletes files. "Uninstall this Blender" moves it to the Safety Bin first, so it can be restored.</p>
 </section>
 
 <section id="library">
   <h2><span class="n">3</span>Add-on library</h2>
-  <p class="lead">Keep one copy of every add-on in one place, with as many versions of each as you like.</p>
+  <p class="lead">Every add-on is stored once, and you can keep several versions of the same add-on. Click "+" left of a name to see its versions.</p>
+  <h3>Adding add-ons</h3>
   <ul>
-    <li><b>Adding:</b> "Add add-ons" imports a .zip, folder or .py. You can also read add-ons from an installed Blender, or drag a .zip into the window.</li>
-    <li><b>Compatibility dots:</b> each column is one Blender series. <span class="dot g"></span>works <span class="dot o"></span>unsure <span class="dot r"></span>doesn't work. Hover to see why.</li>
-    <li><b>Official Extensions:</b> search, download and check for updates.</li>
+    <li><b>Add add-ons:</b> import .zip / .rar / .7z, folders or .py files, or drag files into the window.</li>
+    <li><b>Read add-ons installed in Blender:</b> collects the add-ons already installed in your Blenders. Built-in add-ons are unticked by default.</li>
+    <li><b>Official Extensions:</b> search, download, check for updates, or get the version for another Blender.</li>
     <li><b>Superhive:</b> paste your API token in Settings → Accounts &amp; API to fetch every version of the add-ons you bought and check for updates.</li>
-    <li><b>Checks &amp; tools:</b> test whether add-ons load, and find add-ons that conflict or cause crashes, all in the background.</li>
+  </ul>
+  <h3>Reading the list</h3>
+  <table>
+    <tr><th>Column / mark</th><th>Meaning</th></tr>
+    <tr><td>Dots in the Blender series columns</td><td><span class="dot g"></span>works <span class="dot o"></span>unsure <span class="dot r"></span>doesn't work. Hover to see why; right-click to mark it "confirmed working / not working" yourself.</td></tr>
+    <tr><td>Added</td><td>When the add-on was added to the library.</td></tr>
+    <tr><td><b style="color:#3D8BFD">Blue bold + NEW</b></td><td>The add-ons you added most recently (a batch added together is marked together). The mark moves to the next batch you add.</td></tr>
+    <tr><td>Type "Built into Blender" (bold)</td><td>An add-on that ships with Blender, or a former built-in add-on moved to the official Extensions platform in 4.2. Usually not needed in a module.</td></tr>
+    <tr><td>Type "Not an add-on" (grey)</td><td>Has no <code>bl_info</code>, so Blender won't load it. Usually a leftover part of another add-on unzipped to the wrong place (e.g. <code>core</code>, <code>utils</code>).</td></tr>
+  </table>
+  <ul>
+    <li><b>Sorting:</b> click a column header to sort, again to reverse, a third time to go back to the original order. Your choice is remembered.</li>
+    <li><b>Rename:</b> right-click an add-on → "Rename". Only the name shown changes; store matching and update checks still use the original name. Leave it empty to go back to the original.</li>
+    <li><b>Same add-on, different folder names:</b> when an author renamed the folder between versions (e.g. <code>TexTools_1_5</code> and <code>textools</code>), they're grouped in one row by their original name.</li>
+  </ul>
+  <h3>Checks &amp; tools</h3>
+  <ul>
+    <li><b>Add-on health check:</b> test-loads add-ons in the background to find ones that fail, conflict or crash Blender.</li>
+    <li><b>Upgrade assistant:</b> before moving to a new Blender, see which add-ons need updating.</li>
+    <li><b>Clean up items that are not add-ons:</b> lists items with no <code>bl_info</code> and, after two confirmations, moves them to the Safety Bin.</li>
     <li><b>Backup:</b> pack the whole library into one file, or restore from a backup.</li>
   </ul>
 </section>
 
 <section id="modules">
   <h2><span class="n">4</span>Modules</h2>
-  <p class="lead">A set of add-ons you use together, such as "Sculpting", "Rigging" or "VRM". Load only the modules you need at launch, instead of installing everything into every Blender.</p>
-  <ul>
-    <li>Tick an add-on to put it in the module.</li>
-    <li>"Automatic (recommended)" picks the best version for each Blender at launch (green first, red skipped). You can also pin a specific version.</li>
-    <li>The right column shows whether each add-on works in the Blender version selected above. After testing, right-click an add-on to mark it "confirmed working" or "confirmed not working".</li>
-  </ul>
-</section>
-
-<section id="profiles">
-  <h2><span class="n">5</span>Profiles</h2>
-  <p class="lead">A separate set of preferences, keymaps and default modules, for example "Modeling" or "VTuber".</p>
+  <p class="lead">A module is a group of add-ons you use together, e.g. "Sculpting", "Rigging" or "VRM". Each Blender loads only the add-ons in the modules ticked for it, so you don't need a separate install per Blender.</p>
   <ol class="steps">
-    <li>Click "Add" to create a profile and tick the modules it should load by default.</li>
-    <li>In Blender Instances → "Edit", assign the profile to a Blender.</li>
+    <li>On the Modules tab, click "Add" and give it a name.</li>
+    <li>Tick the add-ons it should contain (saved automatically).</li>
+    <li>On Blender Instances → Manage → Add-ons → Choose modules, tick the modules for each Blender.</li>
   </ol>
   <ul>
-    <li>Preferences are stored per Blender series (4.2, 4.5…). Modules are shared across all series.</li>
-    <li>"Import current settings from a Blender instance" copies an existing Blender's settings into the profile.</li>
+    <li><b>Version used:</b> "Automatic (recommended)" picks the best version for each Blender at launch (green first, red skipped). You can also pin a version.</li>
+    <li><b>Compatibility:</b> the right column shows whether it works in the Blender version chosen at the top.</li>
+    <li><b>Sorting and NEW:</b> like the library, sort by clicking headers; there's an "Added" column and recently added add-ons show NEW.</li>
+    <li><b>One row per add-on:</b> versions of the same add-on whose folder name changed are grouped into one row, so you only tick it once.</li>
+  </ul>
+  <div class="note">Modules only decide which add-ons load. Preferences and keymaps always stay this Blender's own and are never changed by modules.</div>
+</section>
+
+<section id="prefs">
+  <h2><span class="n">5</span>Preferences &amp; keymaps</h2>
+  <p class="lead">Blender Instances → Manage → Settings &amp; backup → Preferences and keymaps. Back up your preferences and keymaps, or take them to another Blender.</p>
+  <table>
+    <tr><th>To do this</th><th>Do this</th></tr>
+    <tr><td>Back up with a name</td><td>Type a name → "Back up current settings". Choose preferences (including keymap changes made in Preferences), keymap preset files, or both.</td></tr>
+    <tr><td>Copy to another Blender of the same version</td><td>Pick a backup (or use the current settings) → tick the target Blenders → "Apply to ticked Blenders".</td></tr>
+    <tr><td>Carry over to a newer Blender</td><td>Same as above. The newer Blender converts the old format the first time it opens.</td></tr>
+  </table>
+  <ul>
+    <li>You can't apply settings to an older version than the source (older Blender can't read newer settings files).</li>
+    <li>The target's current settings are backed up first, and replaced files go to the Safety Bin.</li>
+    <li>Close the target Blender first.</li>
   </ul>
 </section>
 
 <section id="projects">
   <h2><span class="n">6</span>Projects</h2>
-  <p class="lead">Tie a project folder, its stages and the Blender you use for each one together.</p>
+  <p class="lead">Tie a project folder to its stages and the Blender each stage uses.</p>
   <ol class="steps">
-    <li>Click "Add", choose the project folder and optionally a template (for example a VTuber model: modeling → UV → texturing → rigging).</li>
-    <li>Give each stage a Blender, profile and modules.</li>
-    <li>Click "Launch" on a stage to open it with that setup.</li>
+    <li>"Add" and pick the project folder. You can start from a template (e.g. VTuber model: Modeling → UV → Texturing → Rigging).</li>
+    <li>For each stage, choose the Blender and where modules come from: "The modules ticked for this Blender", or "This stage uses the modules ticked below".</li>
+    <li>Click a stage's "Launch" to open it with that setup.</li>
   </ol>
   <ul>
-    <li><b>.blend files:</b> double-click to open with the last stage used; right-click to pick another stage.</li>
+    <li><b>.blend files:</b> double-click to open that file with the stage used last time; right-click to pick another stage.</li>
     <li><b>Renders:</b> shows images from folders such as render and output.</li>
     <li><b>Time tracking:</b> time is recorded automatically when a Blender opened from a stage is closed.</li>
   </ul>
@@ -224,20 +263,21 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
 
 <section id="resources">
   <h2><span class="n">7</span>Resources</h2>
-  <p class="lead">Keep one copy of the assets that come with add-ons (models, materials, HDRIs…) and share it across every Blender.</p>
+  <p class="lead">Assets that come with add-ons (models, materials, HDRIs…) are stored once and shared by every Blender.</p>
   <ul>
-    <li><b>Add resource library:</b> point to an asset folder and the add-on it belongs to.</li>
-    <li><b>Extract shared from add-on:</b> merge duplicated assets from different versions into one copy.</li>
+    <li><b>Add resource library:</b> choose the asset folder and the add-on it belongs to.</li>
+    <li><b>Extract shared from add-on:</b> merge the duplicate assets of several add-on versions into one copy.</li>
   </ul>
 </section>
 
 <section id="logs">
   <h2><span class="n">8</span>Logs &amp; diagnosis</h2>
-  <p class="lead">Every Blender launched from KumikiHub is logged. If Blender reports errors or crashes, KumikiHub analyzes the cause and suggests a fix, such as turning off a specific add-on.</p>
+  <p class="lead">Every Blender launched from KumikiHub is logged. When Blender errors or crashes, KumikiHub analyzes the log and suggests a fix (for example, disabling an add-on).</p>
   <ul>
     <li>Tick "Only runs with problems" to filter quickly.</li>
-    <li>Add your own AI API key in Settings → Accounts &amp; API to use "AI analysis" for finding conflicts. The AI provider bills you directly.</li>
+    <li>Add your own AI API key in Settings → Accounts &amp; API to use "AI analysis" for finding conflicts (the AI provider bills you directly).</li>
     <li>To stop alerts for the same problem, tick "Don't show this again for the same problem" in the alert.</li>
+    <li><b>Locked files:</b> "Unable to save" or "Permission denied" usually means Dropbox, OneDrive or antivirus software is using the file. Wait for syncing to finish and save again, or move the file to a folder that isn't synced.</li>
   </ul>
 </section>
 
@@ -247,9 +287,9 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   <div class="grid">
     <div><b>Format check</b><code>bl_info</code> / <code>blender_manifest.toml</code></div>
     <div><b>New from template</b>Legacy add-on or Extension</div>
-    <div><b>Clean environment</b>Run Blender with only this add-on and see its output live</div>
-    <div><b>Test on every version</b>Load it once in each Blender, in the background</div>
-    <div><b>Link install</b>Changes take effect after restarting Blender</div>
+    <div><b>Clean-environment run</b>Only this add-on enabled, live output</div>
+    <div><b>Test on every version</b>Loads it once in every Blender in the background</div>
+    <div><b>Link install</b>Edit, restart Blender, done</div>
     <div><b>Package</b>Zip it, or build and validate an Extension</div>
   </div>
 </section>
@@ -257,57 +297,61 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
 <section id="settings">
   <h2><span class="n">10</span>Settings &amp; moving PCs</h2>
   <table>
-    <tr><th>Section</th><th>What's there</th></tr>
-    <tr><td>General</td><td>Language, scan locations, settings pack export / import, transfer to another PC</td></tr>
-    <tr><td>Appearance</td><td>Theme colors, font, density, background, navigation position</td></tr>
-    <tr><td>Data location</td><td>Where the add-on library and other data live, Safety Bin size limit</td></tr>
+    <tr><th>Category</th><th>What's in it</th></tr>
+    <tr><td>General</td><td>Language, scan locations, export / import settings packs, transfer between PCs</td></tr>
+    <tr><td>Appearance</td><td>Theme colors, fonts, density, background, sidebar position</td></tr>
+    <tr><td>Data location</td><td>Where the add-on library and other data live; Safety Bin size limit</td></tr>
     <tr><td>Accounts &amp; API</td><td>Superhive, AI, add-on license keys (all encrypted on this PC)</td></tr>
-    <tr><td>Automation &amp; integration</td><td>Update checks, auto backup, alerts, Explorer right-click menu, system tray, developer mode</td></tr>
+    <tr><td>Automation &amp; integration</td><td>Update checks, auto backups, notifications, Explorer right-click menu, system tray, developer mode</td></tr>
   </table>
   <h3>Moving to a new PC</h3>
   <ul>
-    <li><b>Settings pack:</b> Settings → General → "Export settings pack" creates a <code>.bmpack</code> file. Import it on the new PC. It includes profiles, modules, preferences and add-on files.</li>
-    <li><b>Transfer code / QR code:</b> sends only the list. Paste it on the other PC and KumikiHub rebuilds the setup and lists any missing add-ons.</li>
-    <li><b>Local network:</b> with both PCs on the same network, click "Share on local network" on one and "Receive from local network" on the other, then enter the 6-digit pairing code.</li>
+    <li><b>Settings pack:</b> export a <code>.bmpack</code> in Settings → General and import it on the new PC. "Move to a new PC" takes your Blender instance list (with ticked modules), preference &amp; keymap backups, modules and themes, and can include the add-on files. "Share with others" leaves out your PC paths and add-on files.</li>
+    <li><b>Transfer code / QR code:</b> sends only the list (which modules each Blender uses). Paste it on the other PC to recreate the setup; it also lists any missing add-ons.</li>
+    <li><b>Local network transfer:</b> two PCs on the same network — one clicks "Share on local network", the other "Receive from local network" and enters the 6-digit code.</li>
   </ul>
-  <h3>Sharing between PCs</h3>
-  <p>Set the Data location to a folder in Dropbox, OneDrive or Google Drive and point your other PCs to the same folder. They'll share the add-on library, modules and profiles.</p>
+  <h3>Sharing between several PCs</h3>
+  <p>Set the data location to a folder in Dropbox, OneDrive or Google Drive and point your other PCs to the same folder to share the add-on library, modules and preference backups.</p>
 </section>
 
 <section id="backup">
   <h2><span class="n">11</span>Backups &amp; Safety Bin</h2>
   <ul>
-    <li><b>Auto backup:</b> runs on a schedule, and before optimizing, moving or restoring.</li>
-    <li><b>Safety Bin:</b> deleted settings and folders go here first, so you can restore them.</li>
-    <li><b>Undo:</b> after removing something from a list, an "Undo" button appears in the status bar.</li>
+    <li><b>Automatic backups:</b> on a schedule, and before optimizing, moving, applying preferences or restoring.</li>
+    <li><b>Safety Bin:</b> deleted settings, add-ons and folders go here first and can be restored.</li>
+    <li><b>Undo:</b> after removing or cleaning up, an "Undo" button appears in the status bar.</li>
   </ul>
 </section>
 
 <section id="data">
   <h2><span class="n">12</span>Updates, data &amp; uninstall</h2>
-  <p><b>Updates:</b> KumikiHub tells you when a new version is out (it checks at most once a day; turn it off in Settings → Automation &amp; integration). Unzip the new version over the old folder. Your settings are kept.</p>
+  <p><b>Updates:</b> KumikiHub tells you when a new version is out (checked at most once a day; turn it off in Settings → Automation &amp; integration). Download it from the store you bought it from and unzip it over the old folder — your settings are kept.</p>
   <table>
     <tr><th>What</th><th>Where</th></tr>
     <tr><td>App settings, Blender list</td><td>The <code>data</code> folder next to <code>KumikiHub.exe</code></td></tr>
-    <tr><td>Add-on library, profiles, backups</td><td>The folder shown in Settings → Data location (default <code>C:\Blender\Addon Archive Area</code>)</td></tr>
+    <tr><td>Add-on library, modules, preference backups, backups</td><td>The folder shown in Settings → Data location (default <code>C:\Blender\Addon Archive Area</code>)</td></tr>
     <tr><td>Keys, launch logs</td><td><code>%LOCALAPPDATA%\BlenderManager</code> (this PC only)</td></tr>
   </table>
-  <p><b>Uninstall:</b> delete the KumikiHub folder. To remove your data too, also delete the other two folders above. Blender itself is not affected.</p>
+  <p><b>Uninstall:</b> delete the KumikiHub folder. To remove your data too, also delete the other two folders above. Blender itself isn't affected.</p>
 </section>
 
 <section id="faq">
   <h2><span class="n">13</span>FAQ</h2>
   <dl class="faq">
     <dt>Will it change my Blender?</dt>
-    <dd>It never modifies Blender itself. Changes to settings and add-ons are backed up first, and anything you delete goes to the Safety Bin.</dd>
-    <dt>Does it work with the Steam version of Blender?</dt>
-    <dd>Not yet. Scans skip the Steam version for now.</dd>
+    <dd>It never modifies Blender itself. Settings and add-on changes are backed up first, and anything deleted goes to the Safety Bin.</dd>
+    <dt>Why do some add-ons say "Built into Blender" or "Not an add-on"?</dt>
+    <dd>"Built into Blender" add-ons come with Blender; you can keep them in the library for reference. "Not an add-on" items have no <code>bl_info</code> and Blender won't load them; use Checks &amp; tools → Clean up items that are not add-ons to move them to the Safety Bin.</dd>
+    <dt>Do modules change my preferences?</dt>
+    <dd>No. Modules only decide which add-ons load; preferences and keymaps always stay this Blender's own. To move preferences, use section 5.</dd>
+    <dt>Does the Steam version of Blender work?</dt>
+    <dd>Not yet; scans skip it.</dd>
     <dt>How do I report a problem?</dt>
-    <dd>About → "Export diagnostics", then email the file to <a href="mailto:cansss2023@gmail.com">cansss2023@gmail.com</a>. The file never contains API keys or passwords.</dd>
+    <dd>About → "Export diagnostics", then email the file to <a href="mailto:cansss2023@gmail.com">cansss2023@gmail.com</a>. It contains no API keys or passwords.</dd>
   </dl>
 </section>
 
-<footer>KumikiHub · Contact <a href="mailto:cansss2023@gmail.com">cansss2023@gmail.com</a><br>
+<footer>KumikiHub v1.1.1 · Contact <a href="mailto:cansss2023@gmail.com">cansss2023@gmail.com</a><br>
 Blender is a registered trademark of the Blender Foundation. KumikiHub is an independent tool and is not affiliated with the Blender Foundation.</footer>
 </main>
 </div>

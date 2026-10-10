@@ -106,7 +106,7 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
     <li><a href="#instances">Blender 实例</a></li>
     <li><a href="#library">Addon 库</a></li>
     <li><a href="#modules">模块</a></li>
-    <li><a href="#profiles">设置组</a></li>
+    <li><a href="#prefs">偏好设置与快捷键</a></li>
     <li><a href="#projects">项目</a></li>
     <li><a href="#resources">资源库</a></li>
     <li><a href="#logs">记录与诊断</a></li>
@@ -133,77 +133,116 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   <h2><span class="n">1</span>安装与第一次打开</h2>
   <table>
     <tr><th>系统需求</th><th></th></tr>
-    <tr><td>操作系统</td><td>Windows 11（64 位）<br>Windows 10（64 位）理论上可以运行，但未经完整测试，不保证每项功能都能正常运作。</td></tr>
+    <tr><td>操作系统</td><td>Windows 11（64 比特）<br>Windows 10（64 比特）理论上可以运行，但未经完整测试，不保证每项功能都能正常运作。</td></tr>
     <tr><td>Blender</td><td>2.93 以后的版本，以及 Bforartists、Goo Engine、UPBGE 等分支版本</td></tr>
   </table>
   <ol class="steps">
-    <li>把下载的 zip 解压到任何位置，例如桌面或 <code>D:\Tools</code>。</li>
+    <li>把下载的 zip 解压到任何位置，例如桌面或 <code>D:\Tools</code>。不需要安装。</li>
     <li>双击 <code>KumikiHub.exe</code>。</li>
     <li>选择界面语言（默认 English，之后可在「设置 → 一般」更改）。</li>
-    <li>欢迎画面会自动找出电脑上的 Blender 并加入清单。</li>
+    <li>欢迎画面按「扫描我的电脑」，自动找出电脑上的 Blender。</li>
   </ol>
   <div class="note warn"><b>出现「Windows 已保护您的电脑」？</b><br>按「其他信息」→「仍要运行」。只有第一次需要。</div>
   <div class="note"><b>只想先看看？</b><br>双击 <code>KumikiHub Demo.bat</code>，用示范数据打开，不会读取或改动你的 Blender 和设置。</div>
+  <h3>基本概念</h3>
+  <div class="grid">
+    <div><b>Blender 实例</b>电脑上的每一个 Blender（不同版本、可携版、分支版）</div>
+    <div><b>Addon 库</b>所有 Addon 和它们的各个版本，只存一份</div>
+    <div><b>模块</b>一组常一起用的 Addon，例如「雕刻」「VRM」</div>
+    <div><b>启动</b>Blender 勾了哪些模块，启动时就只加载那些 Addon</div>
+  </div>
   <p><b>快捷键：</b><kbd>Ctrl</kbd>+<kbd>K</kbd> 搜索功能　<kbd>Ctrl</kbd>+<kbd>,</kbd> 打开设置　<kbd>F5</kbd> 刷新</p>
 </section>
 
 <section id="instances">
   <h2><span class="n">2</span>Blender 实例</h2>
-  <p class="lead">每个 Blender 是一张卡片，显示版本、设置组、设置位置和上次启动时间。右上角可切换卡片 / 清单。</p>
+  <p class="lead">每个 Blender 是一张卡片，显示版本、勾选的模块、设置位置和上次启动时间。右上角可切换卡片 / 清单。</p>
   <table>
     <tr><th>想做的事</th><th>方式</th></tr>
     <tr><td>启动</td><td>按「▶ 启动」或双击卡片</td></tr>
-    <tr><td>没找到某个 Blender</td><td>「扫描安装」旁的箭头 → 扫描整个磁盘；或「手动添加」选 <code>blender.exe</code>；或把文件夹拖进窗口</td></tr>
+    <tr><td>没找到某个 Blender</td><td>「扫描安装」旁的箭头 → 扫描全部或指定磁盘；或「手动添加」选 <code>blender.exe</code>；或把文件夹拖进窗口</td></tr>
+    <tr><td>设置这个 Blender 要加载哪些模块</td><td>「管理 → Addon → 勾选模块」（可复选）</td></tr>
+    <tr><td>这次临时换一组模块</td><td>「选择模块后启动」，只用这一次</td></tr>
     <tr><td>这次加启动参数</td><td>在「临时启动参数」输入，只用一次</td></tr>
-    <tr><td>这次只加载部分模块</td><td>「选择模块后启动」</td></tr>
     <tr><td>下载官方版本</td><td>「下载新版 Blender」（含 Daily / Experimental Builds）</td></tr>
   </table>
-  <h3>卡片的「⋯」菜单（或按右键）</h3>
-  <div class="grid">
-    <div><b>编辑</b>名称、默认启动参数、指派设置组</div>
-    <div><b>Addon 总览</b>查看并激活 / 禁用已安装的 Addon</div>
-    <div><b>一键优化 Addon 版本</b>把不兼容的 Addon 换成 Addon 库里兼容的版本</div>
-    <div><b>激活 Portable（设置独立）</b>让设置不再和同系列版本共用</div>
-    <div><b>拷贝为新 Blender 实例</b>拷贝一份 Blender 试新 Addon，不影响原本那份</div>
-    <div><b>其他</b>最近开过的文件、备份 / 还原设置、拷贝设置到其他 Blender 实例、导出启动脚本（.bat）</div>
-  </div>
-  <p>「从清单移除」不会删文件；「卸载这个 Blender」会先移到备援区，可以还原。</p>
+  <h3>「管理」菜单（卡片上按右键也有常用项目）</h3>
+  <table>
+    <tr><th>子菜单</th><th>内容</th></tr>
+    <tr><td>Addon</td><td>勾选模块、Addon 总览（查看并激活 / 禁用已安装的 Addon）、一键优化 Addon 版本、Addon 健检</td></tr>
+    <tr><td>设置与备份</td><td>偏好设置与快捷键（见第 5 节）、备份 / 还原设置、拷贝设置到其他 Blender 实例、导出启动脚本（.bat）</td></tr>
+    <tr><td>安装与搬移</td><td>激活 / 禁用 Portable、迁移到管理文件夹、拷贝为新 Blender 实例、卸载这个 Blender</td></tr>
+    <tr><td>其他</td><td>钉选在最上面、最近开过的文件、上次启动报告、备援区</td></tr>
+  </table>
+  <h3>拷贝一个互不影响的 Blender</h3>
+  <p>「拷贝为新 Blender 实例」会拷贝整个 Blender 到管理文件夹，默认同时激活 Portable，并拷贝目前的设置。之后两边的设置、Addon、勾选的模块各改各的，适合准备「VRM 用」「试新 Addon 用」的版本。</p>
   <div class="note warn"><b>设置位置显示橘色「共用！」</b><br>这个 Blender 和同系列的其他版本共用设置。要分开请用「激活 Portable（设置独立）」。</div>
+  <p>「从清单移除」不会删文件；「卸载这个 Blender」会先移到备援区，可以还原。</p>
 </section>
 
 <section id="library">
   <h2><span class="n">3</span>Addon 库</h2>
-  <p class="lead">所有 Addon 集中放一份，同一个 Addon 可保留多个版本。</p>
+  <p class="lead">所有 Addon 集中放一份，同一个 Addon 可保留多个版本。按名称左边的「+」展开看各版本。</p>
+  <h3>加入 Addon</h3>
   <ul>
-    <li><b>加入：</b>「添加 Addon」导入 .zip / 文件夹 / .py、从已安装的 Blender 读取，或直接把 .zip 拖进窗口。</li>
-    <li><b>兼容性圆点：</b>每栏代表一个 Blender 系列。<span class="dot g"></span>可用 <span class="dot o"></span>不确定 <span class="dot r"></span>不可用。鼠标移上去看原因。</li>
-    <li><b>官方 Extensions：</b>搜索、下载，并检查新版。</li>
+    <li><b>添加 Addon：</b>导入 .zip / .rar / .7z、文件夹、.py，或直接把文件拖进窗口。</li>
+    <li><b>从 Blender 读取已安装的 Addon：</b>把各个 Blender 里已经装好的 Addon 收进库里。Blender 内置的 Addon 默认不勾选。</li>
+    <li><b>官方 Extensions：</b>搜索、下载、检查新版，或下载适用其他 Blender 版本的版本。</li>
     <li><b>Superhive：</b>在「设置 → 帐号与 API」粘贴 API Token 后，可补齐已购买 Addon 的所有版本，并检查更新。</li>
-    <li><b>健检与工具：</b>在背景实测 Addon 能否加载，找出互相冲突或造成闪退的 Addon。</li>
+  </ul>
+  <h3>看懂清单</h3>
+  <table>
+    <tr><th>字段 / 标示</th><th>意思</th></tr>
+    <tr><td>Blender 系列栏的圆点</td><td><span class="dot g"></span>可用 <span class="dot o"></span>不确定 <span class="dot r"></span>不可用。鼠标移上去看原因；按右键可手动标记「已确认可用 / 不可用」。</td></tr>
+    <tr><td>加入日期</td><td>这个 Addon 加入 Addon 库的日期。</td></tr>
+    <tr><td><b style="color:#3D8BFD">蓝色粗体 + NEW</b></td><td>最近一次加入的 Addon（一次加入好几个也一起标示）。下次再加入时换成新的那一批。</td></tr>
+    <tr><td>类型「Blender 内置」（粗体）</td><td>Blender 本来就附带的 Addon，或 4.2 起改放到官方 Extensions 平台的原内置 Addon。通常不需要放进模块。</td></tr>
+    <tr><td>类型「不是 Addon」（灰色）</td><td>没有 <code>bl_info</code>，Blender 不会加载。多半是某个 Addon 解压到错误位置留下的零件（例如 <code>core</code>、<code>utils</code>）。</td></tr>
+  </table>
+  <ul>
+    <li><b>排序：</b>按字段名称排序，再按一次反过来，第三次回到原本顺序。下次打开会记住。</li>
+    <li><b>自订名称：</b>在 Addon 上按右键 →「自订名称」。只改画面上的名称；比对商店、检查更新时仍用原名。清空就改回原名。</li>
+    <li><b>同一个 Addon 不同文件夹名称：</b>作者在不同版本改过文件夹名称时（例如 <code>TexTools_1_5</code> 和 <code>textools</code>），会依原名收在同一列。</li>
+  </ul>
+  <h3>健检与工具</h3>
+  <ul>
+    <li><b>Addon 健检：</b>在背景实测 Addon 能否加载，找出互相冲突或造成闪退的 Addon。</li>
+    <li><b>升级助手：</b>换新版 Blender 前，检查哪些 Addon 需要更新。</li>
+    <li><b>清理不是 Addon 的项目：</b>列出没有 <code>bl_info</code> 的项目，确认两次后移到备援区。</li>
     <li><b>备份：</b>把整个 Addon 库打包成一个文件，或从备份还原。</li>
   </ul>
 </section>
 
 <section id="modules">
   <h2><span class="n">4</span>模块</h2>
-  <p class="lead">一组常一起用的 Addon，例如「雕刻」「绑定」「VRM」。启动时只加载需要的模块，不用每个 Blender 各装一套。</p>
-  <ul>
-    <li>勾选 Addon＝放进模块。</li>
-    <li>「使用版本」选「自动（建议）」：启动时自动挑最适合该 Blender 的版本（绿色优先，红色略过）。也可以固定某个版本。</li>
-    <li>右栏显示在上方所选 Blender 版本是否可用。实际试过后，可在 Addon 上按右键标记「确认可用 / 不可用」。</li>
-  </ul>
-</section>
-
-<section id="profiles">
-  <h2><span class="n">5</span>设置组</h2>
-  <p class="lead">一套独立的偏好设置、快捷键和默认模块，例如「建模用」「VTuber 用」。</p>
+  <p class="lead">一组常一起用的 Addon，例如「雕刻」「绑定」「VRM」。Blender 勾了哪些模块，启动时就只加载那些 Addon，不用每个 Blender 各装一套。</p>
   <ol class="steps">
-    <li>「添加」创建设置组，勾选默认要加载的模块。</li>
-    <li>到 Blender 实例 →「编辑」，把设置组指派给 Blender。</li>
+    <li>在「模块」分页按「添加」，取个名字。</li>
+    <li>勾选要放进去的 Addon（勾了就自动保存）。</li>
+    <li>到「Blender 实例」→「管理 → Addon → 勾选模块」，替每个 Blender 勾选要用的模块。</li>
   </ol>
   <ul>
-    <li>偏好设置按 Blender 系列（4.2、4.5…）分开保存；模块则各系列共用。</li>
-    <li>「从 Blender 实例导入目前设置」：把现有 Blender 的设置拷贝进来。</li>
+    <li><b>使用版本：</b>选「自动（建议）」时，启动时自动挑最适合该 Blender 的版本（绿色优先，红色略过）。也可以固定某个版本。</li>
+    <li><b>兼容性：</b>右栏显示在上方所选 Blender 版本是否可用。</li>
+    <li><b>排序与 NEW：</b>和 Addon 库一样，可以按字段名称排序，有「加入日期」栏，最近加入的显示 NEW。</li>
+    <li><b>同一个 Addon 一列：</b>不同版本改过文件夹名称的同一个 Addon，也会收在同一列，勾一次就好。</li>
+  </ul>
+  <div class="note">模块只决定「加载哪些 Addon」。偏好设置与快捷键一律用这个 Blender 自己的，不会被模块改动。</div>
+</section>
+
+<section id="prefs">
+  <h2><span class="n">5</span>偏好设置与快捷键</h2>
+  <p class="lead">在「Blender 实例」→「管理 → 设置与备份 → 偏好设置与快捷键」。可以把偏好设置和快捷键备份起来，或带到其他 Blender。</p>
+  <table>
+    <tr><th>想做的事</th><th>方式</th></tr>
+    <tr><td>备份并命名</td><td>输入名称 →「备份目前设置」。可以只选偏好设置（含在偏好设置里改过的快捷键），或只选快捷键默认档。</td></tr>
+    <tr><td>平移到同版本的其他 Blender</td><td>选一份备份（或「直接用目前的设置」）→ 勾选目标 Blender →「套用到勾选的 Blender」。</td></tr>
+    <tr><td>转移到更新版本的 Blender</td><td>同上。第一次打开新版 Blender 时会自动转换旧格式。</td></tr>
+  </table>
+  <ul>
+    <li>不能套用到比来源更旧的版本（旧版读不懂新版的设置档）。</li>
+    <li>套用前会自动备份目标原本的设置，被取代的文件移到备援区。</li>
+    <li>目标 Blender 必须先关闭。</li>
   </ul>
 </section>
 
@@ -212,11 +251,11 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   <p class="lead">把作品文件夹、工序和要用的 Blender 绑在一起。</p>
   <ol class="steps">
     <li>「添加」选择作品文件夹，可套用范本（例如 VTuber 模型：建模 → UV → 材质 → 绑定）。</li>
-    <li>每个工序指定 Blender、设置组和模块。</li>
+    <li>每个工序指定要用的 Blender，以及模块来源：「用这个 Blender 勾选的模块」，或「这个工序改用下面勾选的模块」。</li>
     <li>按工序的「启动」，用设置好的环境打开。</li>
   </ol>
   <ul>
-    <li><b>.blend 文件：</b>双击用上次的工序打开；右键可选其他工序。</li>
+    <li><b>.blend 文件：</b>双击会用上次的工序打开那个文件；按右键可选其他工序。</li>
     <li><b>算图成品：</b>显示 render、output 等文件夹里的图片。</li>
     <li><b>时间统计：</b>从工序打开的 Blender 关闭后自动记录时间。</li>
   </ul>
@@ -237,7 +276,8 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   <ul>
     <li>勾选「只显示有问题的」快速筛选。</li>
     <li>在「设置 → 帐号与 API」填入你自己的 AI API Key，可用「AI 深入分析」判断冲突原因（费用由该 AI 服务向你收取）。</li>
-    <li>同一问题不想再收到通知：在通知窗口勾选「下次不再提示」。</li>
+    <li>同一问题不想再收到通知：在通知窗口勾选「同样的问题下次不再提示」。</li>
+    <li><b>文件被锁住：</b>出现「无法保存 / 没有权限」时，多半是 Dropbox、OneDrive 或杀毒软件正在使用该文件。等同步完成再保存一次，或把文件移到不同步的文件夹。</li>
   </ul>
 </section>
 
@@ -266,30 +306,30 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   </table>
   <h3>搬到新电脑</h3>
   <ul>
-    <li><b>设置包：</b>「设置 → 一般」导出 <code>.bmpack</code>，到新电脑导入。包含设置组、模块、偏好设置与 Addon 文件。</li>
-    <li><b>传输码 / QR Code：</b>只传清单，对方粘贴后自动创建，并列出还缺哪些 Addon。</li>
+    <li><b>设置包：</b>「设置 → 一般」导出 <code>.bmpack</code>，到新电脑导入。「搬到新电脑」会带走 Blender 实例清单（含勾选的模块）、偏好设置与快捷键备份、模块、外观主题，也可以包含 Addon 文件。「分享给别人」不带你的电脑路径和 Addon 文件。</li>
+    <li><b>传输码 / QR Code：</b>只传清单（每个 Blender 勾了哪些模块），对方粘贴后自动创建，并列出还缺哪些 Addon。</li>
     <li><b>区网直传：</b>同一网络的两台电脑，一台「分享到区网」，另一台「从区网接收」，输入 6 位数配对码。</li>
   </ul>
   <h3>多台电脑共用</h3>
-  <p>把「数据位置」设到 Dropbox、OneDrive 或 Google Drive 里的文件夹，其他电脑也指向同一位置，就能共用 Addon 库、模块和设置组。</p>
+  <p>把「数据位置」设到 Dropbox、OneDrive 或 Google Drive 里的文件夹，其他电脑也指向同一位置，就能共用 Addon 库、模块和偏好设置备份。</p>
 </section>
 
 <section id="backup">
   <h2><span class="n">11</span>备份与备援区</h2>
   <ul>
-    <li><b>自动备份：</b>定期，以及一键优化、搬移、还原之前都会自动备份。</li>
-    <li><b>备援区：</b>删除的设置和文件夹先移到这里，可以还原。</li>
-    <li><b>复原：</b>从清单移除后，状态栏会出现「复原」按钮。</li>
+    <li><b>自动备份：</b>定期，以及一键优化、搬移、套用偏好设置、还原之前都会自动备份。</li>
+    <li><b>备援区：</b>删除的设置、Addon 和文件夹先移到这里，可以还原。</li>
+    <li><b>复原：</b>移除或清理后，状态栏会出现「复原」按钮。</li>
   </ul>
 </section>
 
 <section id="data">
   <h2><span class="n">12</span>更新、数据与卸载</h2>
-  <p><b>更新：</b>有新版本时，打开 KumikiHub 会通知你（一天最多检查一次，可在「设置 → 自动与集成」关闭）。下载新版后解压覆盖旧文件夹即可，设置会保留。</p>
+  <p><b>更新：</b>有新版本时，打开 KumikiHub 会通知你（一天最多检查一次，可在「设置 → 自动与集成」关闭）。到购买的商店下载新版，解压覆盖旧文件夹即可，设置会保留。</p>
   <table>
     <tr><th>内容</th><th>位置</th></tr>
     <tr><td>软件设置、Blender 清单</td><td><code>KumikiHub.exe</code> 旁边的 <code>data</code> 文件夹</td></tr>
-    <tr><td>Addon 库、设置组、备份</td><td>「设置 → 数据位置」显示的文件夹（默认 <code>C:\Blender\Addon Archive Area</code>）</td></tr>
+    <tr><td>Addon 库、模块、偏好设置备份、备份</td><td>「设置 → 数据位置」显示的文件夹（默认 <code>C:\Blender\Addon Archive Area</code>）</td></tr>
     <tr><td>密钥、启动记录</td><td><code>%LOCALAPPDATA%\BlenderManager</code>（只属于这台电脑）</td></tr>
   </table>
   <p><b>卸载：</b>删除 KumikiHub 文件夹即可。若也要删除数据，再删除上表的另外两个文件夹。Blender 本身不受影响。</p>
@@ -300,6 +340,10 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   <dl class="faq">
     <dt>会改动我的 Blender 吗？</dt>
     <dd>不会修改 Blender 本体。设置与 Addon 的变更都会先备份，删除的东西先放进备援区。</dd>
+    <dt>为什么有些 Addon 显示「Blender 内置」或「不是 Addon」？</dt>
+    <dd>「Blender 内置」是 Blender 本来就有的 Addon，可以留在库里参考。「不是 Addon」是没有 <code>bl_info</code> 的文件夹或文件，Blender 不会加载，可以用「健检与工具 → 清理不是 Addon 的项目」移到备援区。</dd>
+    <dt>模块会改到我的偏好设置吗？</dt>
+    <dd>不会。模块只决定加载哪些 Addon；偏好设置与快捷键一律用这个 Blender 自己的。要搬移偏好设置，请用第 5 节的功能。</dd>
     <dt>Steam 版 Blender 可以用吗？</dt>
     <dd>目前扫描时会略过 Steam 版。</dd>
     <dt>怎么回报问题？</dt>
@@ -307,7 +351,7 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   </dl>
 </section>
 
-<footer>KumikiHub · 联系 <a href="mailto:cansss2023@gmail.com">cansss2023@gmail.com</a><br>
+<footer>KumikiHub v1.1.1 · 联系 <a href="mailto:cansss2023@gmail.com">cansss2023@gmail.com</a><br>
 Blender 是 Blender Foundation 的注册商标。KumikiHub 为独立开发的第三方工具，与 Blender Foundation 没有关系。</footer>
 </main>
 </div>

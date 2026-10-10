@@ -106,7 +106,7 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
     <li><a href="#instances">Blender 實例</a></li>
     <li><a href="#library">Addon 庫</a></li>
     <li><a href="#modules">模塊</a></li>
-    <li><a href="#profiles">設定組</a></li>
+    <li><a href="#prefs">偏好設定與快捷鍵</a></li>
     <li><a href="#projects">專案</a></li>
     <li><a href="#resources">資源庫</a></li>
     <li><a href="#logs">記錄與診斷</a></li>
@@ -137,73 +137,112 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
     <tr><td>Blender</td><td>2.93 以後的版本，以及 Bforartists、Goo Engine、UPBGE 等分支版本</td></tr>
   </table>
   <ol class="steps">
-    <li>把下載的 zip 解壓到任何位置，例如桌面或 <code>D:\Tools</code>。</li>
+    <li>把下載的 zip 解壓到任何位置，例如桌面或 <code>D:\Tools</code>。不需要安裝。</li>
     <li>雙擊 <code>KumikiHub.exe</code>。</li>
     <li>選擇介面語言（預設 English，之後可在「設定 → 一般」更改）。</li>
-    <li>歡迎畫面會自動找出電腦上的 Blender 並加入清單。</li>
+    <li>歡迎畫面按「掃描我的電腦」，自動找出電腦上的 Blender。</li>
   </ol>
   <div class="note warn"><b>出現「Windows 已保護您的電腦」？</b><br>按「其他資訊」→「仍要執行」。只有第一次需要。</div>
   <div class="note"><b>只想先看看？</b><br>雙擊 <code>KumikiHub Demo.bat</code>，用示範資料開啟，不會讀取或改動你的 Blender 和設定。</div>
+  <h3>基本概念</h3>
+  <div class="grid">
+    <div><b>Blender 實例</b>電腦上的每一個 Blender（不同版本、可攜版、分支版）</div>
+    <div><b>Addon 庫</b>所有 Addon 和它們的各個版本，只存一份</div>
+    <div><b>模塊</b>一組常一起用的 Addon，例如「雕刻」「VRM」</div>
+    <div><b>啟動</b>Blender 勾了哪些模塊，啟動時就只載入那些 Addon</div>
+  </div>
   <p><b>快捷鍵：</b><kbd>Ctrl</kbd>+<kbd>K</kbd> 搜尋功能　<kbd>Ctrl</kbd>+<kbd>,</kbd> 開啟設定　<kbd>F5</kbd> 重新整理</p>
 </section>
 
 <section id="instances">
   <h2><span class="n">2</span>Blender 實例</h2>
-  <p class="lead">每個 Blender 是一張卡片，顯示版本、設定組、設定位置和上次啟動時間。右上角可切換卡片 / 清單。</p>
+  <p class="lead">每個 Blender 是一張卡片，顯示版本、勾選的模塊、設定位置和上次啟動時間。右上角可切換卡片 / 清單。</p>
   <table>
     <tr><th>想做的事</th><th>方式</th></tr>
     <tr><td>啟動</td><td>按「▶ 啟動」或雙擊卡片</td></tr>
-    <tr><td>沒找到某個 Blender</td><td>「掃描安裝」旁的箭頭 → 掃描整個磁碟；或「手動新增」選 <code>blender.exe</code>；或把資料夾拖進視窗</td></tr>
+    <tr><td>沒找到某個 Blender</td><td>「掃描安裝」旁的箭頭 → 掃描全部或指定磁碟；或「手動新增」選 <code>blender.exe</code>；或把資料夾拖進視窗</td></tr>
+    <tr><td>設定這個 Blender 要載入哪些模塊</td><td>「管理 → Addon → 勾選模塊」（可複選）</td></tr>
+    <tr><td>這次臨時換一組模塊</td><td>「選擇模塊後啟動」，只用這一次</td></tr>
     <tr><td>這次加啟動參數</td><td>在「臨時啟動參數」輸入，只用一次</td></tr>
-    <tr><td>這次只載入部分模塊</td><td>「選擇模塊後啟動」</td></tr>
     <tr><td>下載官方版本</td><td>「下載新版 Blender」（含 Daily / Experimental Builds）</td></tr>
   </table>
-  <h3>卡片的「⋯」選單（或按右鍵）</h3>
-  <div class="grid">
-    <div><b>編輯</b>名稱、預設啟動參數、指派設定組</div>
-    <div><b>Addon 總覽</b>查看並啟用 / 停用已安裝的 Addon</div>
-    <div><b>一鍵優化 Addon 版本</b>把不相容的 Addon 換成 Addon 庫裡相容的版本</div>
-    <div><b>啟用 Portable（設定獨立）</b>讓設定不再和同系列版本共用</div>
-    <div><b>複製為新 Blender 實例</b>複製一份 Blender 試新 Addon，不影響原本那份</div>
-    <div><b>其他</b>最近開過的檔案、備份 / 還原設定、複製設定到其他 Blender 實例、匯出啟動腳本（.bat）</div>
-  </div>
-  <p>「從清單移除」不會刪檔案；「解除安裝這個 Blender」會先移到備援區，可以還原。</p>
+  <h3>「管理」選單（卡片上按右鍵也有常用項目）</h3>
+  <table>
+    <tr><th>子選單</th><th>內容</th></tr>
+    <tr><td>Addon</td><td>勾選模塊、Addon 總覽（查看並啟用 / 停用已安裝的 Addon）、一鍵優化 Addon 版本、Addon 健檢</td></tr>
+    <tr><td>設定與備份</td><td>偏好設定與快捷鍵（見第 5 節）、備份 / 還原設定、複製設定到其他 Blender 實例、匯出啟動腳本（.bat）</td></tr>
+    <tr><td>安裝與搬移</td><td>啟用 / 停用 Portable、遷移到管理資料夾、複製為新 Blender 實例、解除安裝這個 Blender</td></tr>
+    <tr><td>其他</td><td>釘選在最上面、最近開過的檔案、上次啟動報告、備援區</td></tr>
+  </table>
+  <h3>複製一個互不影響的 Blender</h3>
+  <p>「複製為新 Blender 實例」會複製整個 Blender 到管理資料夾，預設同時啟用 Portable，並複製目前的設定。之後兩邊的設定、Addon、勾選的模塊各改各的，適合準備「VRM 用」「試新 Addon 用」的版本。</p>
   <div class="note warn"><b>設定位置顯示橘色「共用！」</b><br>這個 Blender 和同系列的其他版本共用設定。要分開請用「啟用 Portable（設定獨立）」。</div>
+  <p>「從清單移除」不會刪檔案；「解除安裝這個 Blender」會先移到備援區，可以還原。</p>
 </section>
 
 <section id="library">
   <h2><span class="n">3</span>Addon 庫</h2>
-  <p class="lead">所有 Addon 集中放一份，同一個 Addon 可保留多個版本。</p>
+  <p class="lead">所有 Addon 集中放一份，同一個 Addon 可保留多個版本。按名稱左邊的「+」展開看各版本。</p>
+  <h3>加入 Addon</h3>
   <ul>
-    <li><b>加入：</b>「新增 Addon」匯入 .zip / 資料夾 / .py、從已安裝的 Blender 讀取，或直接把 .zip 拖進視窗。</li>
-    <li><b>相容性圓點：</b>每欄代表一個 Blender 系列。<span class="dot g"></span>可用 <span class="dot o"></span>不確定 <span class="dot r"></span>不可用。滑鼠移上去看原因。</li>
-    <li><b>官方 Extensions：</b>搜尋、下載，並檢查新版。</li>
+    <li><b>新增 Addon：</b>匯入 .zip / .rar / .7z、資料夾、.py，或直接把檔案拖進視窗。</li>
+    <li><b>從 Blender 讀取已安裝的 Addon：</b>把各個 Blender 裡已經裝好的 Addon 收進庫裡。Blender 內建的 Addon 預設不勾選。</li>
+    <li><b>官方 Extensions：</b>搜尋、下載、檢查新版，或下載適用其他 Blender 版本的版本。</li>
     <li><b>Superhive：</b>在「設定 → 帳號與 API」貼上 API Token 後，可補齊已購買 Addon 的所有版本，並檢查更新。</li>
-    <li><b>健檢與工具：</b>在背景實測 Addon 能否載入，找出互相衝突或造成閃退的 Addon。</li>
+  </ul>
+  <h3>看懂清單</h3>
+  <table>
+    <tr><th>欄位 / 標示</th><th>意思</th></tr>
+    <tr><td>Blender 系列欄的圓點</td><td><span class="dot g"></span>可用 <span class="dot o"></span>不確定 <span class="dot r"></span>不可用。滑鼠移上去看原因；按右鍵可手動標記「已確認可用 / 不可用」。</td></tr>
+    <tr><td>加入日期</td><td>這個 Addon 加入 Addon 庫的日期。</td></tr>
+    <tr><td><b style="color:#3D8BFD">藍色粗體 + NEW</b></td><td>最近一次加入的 Addon（一次加入好幾個也一起標示）。下次再加入時換成新的那一批。</td></tr>
+    <tr><td>類型「Blender 內建」（粗體）</td><td>Blender 本來就附帶的 Addon，或 4.2 起改放到官方 Extensions 平台的原內建 Addon。通常不需要放進模塊。</td></tr>
+    <tr><td>類型「不是 Addon」（灰色）</td><td>沒有 <code>bl_info</code>，Blender 不會載入。多半是某個 Addon 解壓到錯誤位置留下的零件（例如 <code>core</code>、<code>utils</code>）。</td></tr>
+  </table>
+  <ul>
+    <li><b>排序：</b>按欄位名稱排序，再按一次反過來，第三次回到原本順序。下次開啟會記住。</li>
+    <li><b>自訂名稱：</b>在 Addon 上按右鍵 →「自訂名稱」。只改畫面上的名稱；比對商店、檢查更新時仍用原名。清空就改回原名。</li>
+    <li><b>同一個 Addon 不同資料夾名稱：</b>作者在不同版本改過資料夾名稱時（例如 <code>TexTools_1_5</code> 和 <code>textools</code>），會依原名收在同一列。</li>
+  </ul>
+  <h3>健檢與工具</h3>
+  <ul>
+    <li><b>Addon 健檢：</b>在背景實測 Addon 能否載入，找出互相衝突或造成閃退的 Addon。</li>
+    <li><b>升級助手：</b>換新版 Blender 前，檢查哪些 Addon 需要更新。</li>
+    <li><b>清理不是 Addon 的項目：</b>列出沒有 <code>bl_info</code> 的項目，確認兩次後移到備援區。</li>
     <li><b>備份：</b>把整個 Addon 庫打包成一個檔案，或從備份還原。</li>
   </ul>
 </section>
 
 <section id="modules">
   <h2><span class="n">4</span>模塊</h2>
-  <p class="lead">一組常一起用的 Addon，例如「雕刻」「綁定」「VRM」。啟動時只載入需要的模塊，不用每個 Blender 各裝一套。</p>
-  <ul>
-    <li>勾選 Addon＝放進模塊。</li>
-    <li>「使用版本」選「自動（建議）」：啟動時自動挑最適合該 Blender 的版本（綠色優先，紅色略過）。也可以固定某個版本。</li>
-    <li>右欄顯示在上方所選 Blender 版本是否可用。實際試過後，可在 Addon 上按右鍵標記「確認可用 / 不可用」。</li>
-  </ul>
-</section>
-
-<section id="profiles">
-  <h2><span class="n">5</span>設定組</h2>
-  <p class="lead">一套獨立的偏好設定、快捷鍵和預設模塊，例如「建模用」「VTuber 用」。</p>
+  <p class="lead">一組常一起用的 Addon，例如「雕刻」「綁定」「VRM」。Blender 勾了哪些模塊，啟動時就只載入那些 Addon，不用每個 Blender 各裝一套。</p>
   <ol class="steps">
-    <li>「新增」建立設定組，勾選預設要載入的模塊。</li>
-    <li>到 Blender 實例 →「編輯」，把設定組指派給 Blender。</li>
+    <li>在「模塊」分頁按「新增」，取個名字。</li>
+    <li>勾選要放進去的 Addon（勾了就自動儲存）。</li>
+    <li>到「Blender 實例」→「管理 → Addon → 勾選模塊」，替每個 Blender 勾選要用的模塊。</li>
   </ol>
   <ul>
-    <li>偏好設定按 Blender 系列（4.2、4.5…）分開保存；模塊則各系列共用。</li>
-    <li>「從 Blender 實例匯入目前設定」：把現有 Blender 的設定複製進來。</li>
+    <li><b>使用版本：</b>選「自動（建議）」時，啟動時自動挑最適合該 Blender 的版本（綠色優先，紅色略過）。也可以固定某個版本。</li>
+    <li><b>相容性：</b>右欄顯示在上方所選 Blender 版本是否可用。</li>
+    <li><b>排序與 NEW：</b>和 Addon 庫一樣，可以按欄位名稱排序，有「加入日期」欄，最近加入的顯示 NEW。</li>
+    <li><b>同一個 Addon 一列：</b>不同版本改過資料夾名稱的同一個 Addon，也會收在同一列，勾一次就好。</li>
+  </ul>
+  <div class="note">模塊只決定「載入哪些 Addon」。偏好設定與快捷鍵一律用這個 Blender 自己的，不會被模塊改動。</div>
+</section>
+
+<section id="prefs">
+  <h2><span class="n">5</span>偏好設定與快捷鍵</h2>
+  <p class="lead">在「Blender 實例」→「管理 → 設定與備份 → 偏好設定與快捷鍵」。可以把偏好設定和快捷鍵備份起來，或帶到其他 Blender。</p>
+  <table>
+    <tr><th>想做的事</th><th>方式</th></tr>
+    <tr><td>備份並命名</td><td>輸入名稱 →「備份目前設定」。可以只選偏好設定（含在偏好設定裡改過的快捷鍵），或只選快捷鍵預設檔。</td></tr>
+    <tr><td>平移到同版本的其他 Blender</td><td>選一份備份（或「直接用目前的設定」）→ 勾選目標 Blender →「套用到勾選的 Blender」。</td></tr>
+    <tr><td>轉移到更新版本的 Blender</td><td>同上。第一次開啟新版 Blender 時會自動轉換舊格式。</td></tr>
+  </table>
+  <ul>
+    <li>不能套用到比來源更舊的版本（舊版讀不懂新版的設定檔）。</li>
+    <li>套用前會自動備份目標原本的設定，被取代的檔案移到備援區。</li>
+    <li>目標 Blender 必須先關閉。</li>
   </ul>
 </section>
 
@@ -212,11 +251,11 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   <p class="lead">把作品資料夾、工序和要用的 Blender 綁在一起。</p>
   <ol class="steps">
     <li>「新增」選擇作品資料夾，可套用範本（例如 VTuber 模型：建模 → UV → 材質 → 綁定）。</li>
-    <li>每個工序指定 Blender、設定組和模塊。</li>
+    <li>每個工序指定要用的 Blender，以及模塊來源：「用這個 Blender 勾選的模塊」，或「這個工序改用下面勾選的模塊」。</li>
     <li>按工序的「啟動」，用設定好的環境開啟。</li>
   </ol>
   <ul>
-    <li><b>.blend 檔案：</b>雙擊用上次的工序開啟；右鍵可選其他工序。</li>
+    <li><b>.blend 檔案：</b>雙擊會用上次的工序開啟那個檔案；按右鍵可選其他工序。</li>
     <li><b>算圖成品：</b>顯示 render、output 等資料夾裡的圖片。</li>
     <li><b>時間統計：</b>從工序開啟的 Blender 關閉後自動記錄時間。</li>
   </ul>
@@ -237,7 +276,8 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   <ul>
     <li>勾選「只顯示有問題的」快速篩選。</li>
     <li>在「設定 → 帳號與 API」填入你自己的 AI API Key，可用「AI 深入分析」判斷衝突原因（費用由該 AI 服務向你收取）。</li>
-    <li>同一問題不想再收到通知：在通知視窗勾選「下次不再提示」。</li>
+    <li>同一問題不想再收到通知：在通知視窗勾選「同樣的問題下次不再提示」。</li>
+    <li><b>檔案被鎖住：</b>出現「無法存檔 / 沒有權限」時，多半是 Dropbox、OneDrive 或防毒軟體正在使用該檔案。等同步完成再存一次，或把檔案移到不同步的資料夾。</li>
   </ul>
 </section>
 
@@ -266,30 +306,30 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   </table>
   <h3>搬到新電腦</h3>
   <ul>
-    <li><b>設定包：</b>「設定 → 一般」匯出 <code>.bmpack</code>，到新電腦匯入。包含設定組、模塊、偏好設定與 Addon 檔案。</li>
-    <li><b>傳輸碼 / QR Code：</b>只傳清單，對方貼上後自動建立，並列出還缺哪些 Addon。</li>
+    <li><b>設定包：</b>「設定 → 一般」匯出 <code>.bmpack</code>，到新電腦匯入。「搬到新電腦」會帶走 Blender 實例清單（含勾選的模塊）、偏好設定與快捷鍵備份、模塊、外觀主題，也可以包含 Addon 檔案。「分享給別人」不帶你的電腦路徑和 Addon 檔案。</li>
+    <li><b>傳輸碼 / QR Code：</b>只傳清單（每個 Blender 勾了哪些模塊），對方貼上後自動建立，並列出還缺哪些 Addon。</li>
     <li><b>區網直傳：</b>同一網路的兩台電腦，一台「分享到區網」，另一台「從區網接收」，輸入 6 位數配對碼。</li>
   </ul>
   <h3>多台電腦共用</h3>
-  <p>把「資料位置」設到 Dropbox、OneDrive 或 Google Drive 裡的資料夾，其他電腦也指向同一位置，就能共用 Addon 庫、模塊和設定組。</p>
+  <p>把「資料位置」設到 Dropbox、OneDrive 或 Google Drive 裡的資料夾，其他電腦也指向同一位置，就能共用 Addon 庫、模塊和偏好設定備份。</p>
 </section>
 
 <section id="backup">
   <h2><span class="n">11</span>備份與備援區</h2>
   <ul>
-    <li><b>自動備份：</b>定期，以及一鍵優化、搬移、還原之前都會自動備份。</li>
-    <li><b>備援區：</b>刪除的設定和資料夾先移到這裡，可以還原。</li>
-    <li><b>復原：</b>從清單移除後，狀態列會出現「復原」按鈕。</li>
+    <li><b>自動備份：</b>定期，以及一鍵優化、搬移、套用偏好設定、還原之前都會自動備份。</li>
+    <li><b>備援區：</b>刪除的設定、Addon 和資料夾先移到這裡，可以還原。</li>
+    <li><b>復原：</b>移除或清理後，狀態列會出現「復原」按鈕。</li>
   </ul>
 </section>
 
 <section id="data">
   <h2><span class="n">12</span>更新、資料與解除安裝</h2>
-  <p><b>更新：</b>有新版本時，開啟 KumikiHub 會通知你（一天最多檢查一次，可在「設定 → 自動與整合」關閉）。下載新版後解壓覆蓋舊資料夾即可，設定會保留。</p>
+  <p><b>更新：</b>有新版本時，開啟 KumikiHub 會通知你（一天最多檢查一次，可在「設定 → 自動與整合」關閉）。到購買的商店下載新版，解壓覆蓋舊資料夾即可，設定會保留。</p>
   <table>
     <tr><th>內容</th><th>位置</th></tr>
     <tr><td>軟件設定、Blender 清單</td><td><code>KumikiHub.exe</code> 旁邊的 <code>data</code> 資料夾</td></tr>
-    <tr><td>Addon 庫、設定組、備份</td><td>「設定 → 資料位置」顯示的資料夾（預設 <code>C:\Blender\Addon Archive Area</code>）</td></tr>
+    <tr><td>Addon 庫、模塊、偏好設定備份、備份</td><td>「設定 → 資料位置」顯示的資料夾（預設 <code>C:\Blender\Addon Archive Area</code>）</td></tr>
     <tr><td>金鑰、啟動記錄</td><td><code>%LOCALAPPDATA%\BlenderManager</code>（只屬於這台電腦）</td></tr>
   </table>
   <p><b>解除安裝：</b>刪除 KumikiHub 資料夾即可。若也要刪除資料，再刪除上表的另外兩個資料夾。Blender 本身不受影響。</p>
@@ -300,6 +340,10 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   <dl class="faq">
     <dt>會改動我的 Blender 嗎？</dt>
     <dd>不會修改 Blender 本體。設定與 Addon 的變更都會先備份，刪除的東西先放進備援區。</dd>
+    <dt>為什麼有些 Addon 顯示「Blender 內建」或「不是 Addon」？</dt>
+    <dd>「Blender 內建」是 Blender 本來就有的 Addon，可以留在庫裡參考。「不是 Addon」是沒有 <code>bl_info</code> 的資料夾或檔案，Blender 不會載入，可以用「健檢與工具 → 清理不是 Addon 的項目」移到備援區。</dd>
+    <dt>模塊會改到我的偏好設定嗎？</dt>
+    <dd>不會。模塊只決定載入哪些 Addon；偏好設定與快捷鍵一律用這個 Blender 自己的。要搬移偏好設定，請用第 5 節的功能。</dd>
     <dt>Steam 版 Blender 可以用嗎？</dt>
     <dd>目前掃描時會略過 Steam 版。</dd>
     <dt>怎麼回報問題？</dt>
@@ -307,7 +351,7 @@ footer{color:var(--muted);text-align:center;font-size:14px;margin-top:28px}
   </dl>
 </section>
 
-<footer>KumikiHub · 聯絡 <a href="mailto:cansss2023@gmail.com">cansss2023@gmail.com</a><br>
+<footer>KumikiHub v1.1.1 · 聯絡 <a href="mailto:cansss2023@gmail.com">cansss2023@gmail.com</a><br>
 Blender 是 Blender Foundation 的註冊商標。KumikiHub 為獨立開發的第三方工具，與 Blender Foundation 沒有關係。</footer>
 </main>
 </div>
